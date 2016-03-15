@@ -1,0 +1,56 @@
+<section data-ng-controller="ArtcilesController" data-ng-init="findOne()">
+  <div class="page-header">
+    <h1>Comments</h1>
+  </div>
+  <div class="col-md-12">
+    <form class="form-horizontal" data-ng-submit="create()" novalidate>
+      <fieldset>
+        <div class="form-group">
+
+          <div class="controls">
+
+            <textarea data-ng-model="description" id="description" class="form-control" placeholder="Type a Comment" required></textarea>
+          </div>
+        </div>
+        <div class="form-group pull-right">
+          <input type="submit" value="Post Comment" class="btn btn-primary">
+        </div>
+        <div data-ng-show="error" class="text-danger">
+          <strong data-ng-bind="error"></strong>
+        </div>
+      </fieldset>
+    </form>
+    <div class="row  bg-gray ">
+      <div class=" " data-ng-repeat="artcile in artciles">
+        <div class="col-lg-8 pull-left">
+          {{$index+1}}
+          <h4 class="list-group-item-heading" ng-bind="artcile.user.displayName"></h4>
+          <p>{{artcile.description}}</p>
+        </div>
+        <div class="col-lg-2 pull-right">
+          <div class="col-lg-8">
+            <button class="btn btn-block btn-info  ">Like
+            </button>
+          </div>
+          <div class="col-lg-2">
+            {{like}}
+            <p>Upvotes</p>
+          </div>
+          <div class="col-lg-8">
+            <button class="btn btn-block btn-danger ">Dislike
+
+            </button>
+          </div>
+          <div class="col-lg-2">
+            {{dislike}}
+            <p>Downvotes</p>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+</section>
